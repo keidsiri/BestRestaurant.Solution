@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BestRestaurant.Controllers
 {
-  public class CuisineControllers : Controller
+  public class CuisinesController : Controller
   {
     private readonly BestRestaurantContext _db;
 
@@ -41,7 +41,7 @@ namespace BestRestaurant.Controllers
 
     public ActionResult Edit(int id)
     {
-        var thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.cuisineId == id);
+        var thisCuisine = _db.Cuisines.FirstOrDefault(cuisine => cuisine.CuisineId == id);
         return View(thisCuisine);
     }
 
@@ -69,5 +69,4 @@ namespace BestRestaurant.Controllers
     }
 
   }
-
 }
