@@ -54,7 +54,7 @@ No known issues
 
 ## License
 
-#### [MIT](https://opensource.org/licenses/MIT) Copyright (c) _2021_ _Jeff Terrell, Karen Axon & Kate Kiatsiri_
+#### [MIT](https://opensource.org/licenses/MIT) Copyright (c) _2021_ _Jeff Terrell, Curtis Brooks & Kate Kiatsiri_
 
 ## Contact Information
 
