@@ -11,6 +11,6 @@ namespace BestRestaurant.Models
 
     public int CuisineId { get; set; }
     public string Name { get; set; }
-    public virtual ICollection<Restaurant> Restaurants { get; set; }  // lazy loading
+    public virtual ICollection<Restaurant> Restaurants { get; set; }  // lazy loading to get the list of cuisine 
   }
 }

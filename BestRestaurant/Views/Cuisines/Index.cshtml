@@ -5,7 +5,7 @@
 @using BestRestaurant.Models;
 @model List<BestRestaurant.Models.Cuisine>;
 
-<h1>Categories</h1>
+<h1>Cuisines</h1>
 
 <ul>
   @foreach(Cuisine cuisine in Model)
@@ -13,6 +13,21 @@
       <li>@Html.ActionLink($"{cuisine.Name}", "Details", new { id = cuisine.CuisineId })</li>
   }
 </ul>
+
+@using (Html.BeginForm())
+{
+    <h4>Here's list of cuisine name/type: </h4>
+    @Html.DropDownList("CuisineId")
+
+    <input type="submit" value="Go" />
+
+  @* @foreach(Restaurant restaurant in ViewBag.data)
+  {
+  <li>restaurant.Name</li>
+  } *@
+
+}
+
 
 <p>@Html.ActionLink("Add new cuisine", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

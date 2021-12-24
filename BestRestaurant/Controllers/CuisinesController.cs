@@ -3,6 +3,8 @@ using BestRestaurant.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 
 namespace BestRestaurant.Controllers
 {
@@ -16,8 +18,17 @@ namespace BestRestaurant.Controllers
     }
     public ActionResult Index()
     {
+      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "Name");
       List<Cuisine> model = _db.Cuisines.ToList();  // Match with table name
       return View(model);
+    }
+
+    [HttpPost]
+    public ActionResult Index(int cuisineId)
+    {
+      List<Restaurant> restaurantList = _db.Restaurants.ToList();
+      var sortedList = restaurantList.OrderBy(restaurant => restaurant.CuisineId = cuisineId).ToList();
+      return View("Search", sortedList);
     }
 
     public ActionResult Create()
@@ -68,5 +79,10 @@ namespace BestRestaurant.Controllers
         return RedirectToAction("Index");
     }
 
+    public ActionResult Search(List<Restaurant> sortedList)
+    {
+        var model = sortedList;
+        return View(model);
+    }
   }
 }
